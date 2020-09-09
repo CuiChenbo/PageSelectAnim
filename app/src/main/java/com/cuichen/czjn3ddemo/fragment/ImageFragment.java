@@ -69,7 +69,7 @@ public class ImageFragment extends Fragment {
     private float lastY;
 
     private int viewpagerH = 0; //界面高度
-    private int dampPixels = 0; //阻尼差
+    private int acceleratePixels = 0; //需要加速的距离
     private int concealPixels;  //隐藏区域
     private int animLayoutPixels;  //动画区域高度
 
@@ -157,21 +157,21 @@ public class ImageFragment extends Fragment {
                 + "---\n positionOffsetPixels: " + positionOffsetPixels
                 + "---\n translationY: " + translationY);
 
-        // 反向阻尼效果
+        // 加速效果
         if (translationY < 60) {
-            dampPixels = translationY * 2;
+            acceleratePixels = translationY * 2;
         } else {
-            dampPixels = 60 * 2;
+            acceleratePixels = 60 * 2;
         }
 
         if (OffsetPixelsAnim) {
             if (appearAnimator != null)appearAnimator.cancel();
-            llAnim.setTranslationY(translationY + dampPixels + concealPixels);
+            llAnim.setTranslationY(translationY + acceleratePixels + concealPixels);
         }
         OffsetPixelsAnim = true;
     }
 
-    private int onCurrentItem = 1;
+    private int onCurrentItem = VViewPagerAct.DEFAULTPAGENUMBER;
     public void onPageScrollStateChanged(int state , int currentItem) {
         if (onCurrentItem == currentItem)return;
        if (state == ViewPager.SCROLL_STATE_IDLE) {

@@ -187,7 +187,7 @@ public class WebFragment extends Fragment {
         OffsetPixelsAnim = true;
     }
 
-    private int onCurrentItem = 1;
+    private int onCurrentItem = VViewPagerAct.DEFAULTPAGENUMBER;
     public void onPageScrollStateChanged(int state , int currentItem) {
         if (onCurrentItem == currentItem)return;
         if (state == ViewPager.SCROLL_STATE_IDLE) {

@@ -10,7 +10,6 @@ import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-
 import com.cuichen.czjn3ddemo.R;
 import com.cuichen.czjn3ddemo.fragment.ImageFragment;
 import com.cuichen.czjn3ddemo.fragment.WebFragment;
@@ -21,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VViewPagerAct extends FragmentActivity {
+
+    public final static int DEFAULTPAGENUMBER = 1;
 
     private NoScrollViewPager vvp;
     private AppCompatButton btn;
@@ -69,7 +70,7 @@ public class VViewPagerAct extends FragmentActivity {
             }
         };
         vvp.setAdapter(pagerAdapter);
-        vvp.setCurrentItem(1);
+        vvp.setCurrentItem(DEFAULTPAGENUMBER);
     }
 
 
